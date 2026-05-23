@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Adithi ❤️</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A magical, interactive birthday surprise website made with all the love in the universe for Adithi by DilliLokesh.">
+  <meta name="theme-color" content="#ffb7c5">
+
+  <!-- Google Fonts for Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Beautiful Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Ambient Canvas Particles -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Canvas for Confetti Explosions -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Background Ambient Music Player (Floating & Styled) -->
+  <div id="music-player-container" class="hidden">
+    <button id="music-toggle" aria-label="Toggle Music">
+      <div class="music-disc-wrapper">
+        <i class="fa-solid fa-heart heart-icon-pulse"></i>
+        <div class="music-waves">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <!-- Audio Element (Uses copyright-free beautiful romantic music, with synthesized fallback) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/123/123-200.wav" type="audio/wav"> <!-- Audio fallback or synth -->
+  </audio>
+
+  <!-- MAIN WRAPPER FOR SLIDE-BASED SPA -->
+  <main id="app-container">
+
+    <!-- 0. LANDING PAGE -->
+    <section id="section-landing" class="section active">
+      <div class="glass-container landing-card">
+        <div class="floating-icons">
+          <span class="bubble-heart"><i class="fa-solid fa-heart"></i></span>
+          <span class="bubble-heart"><i class="fa-solid fa-heart"></i></span>
+        </div>
+        
+        <div class="avatar-container">
+          <div class="avatar-ring"></div>
+          <div class="avatar">💖</div>
+        </div>
+
+        <h1 class="romantic-title font-playfair">For the most special girl in my life...</h1>
+        
+        <!-- Typewriter Text Container -->
+        <div class="typewriter-box">
+          <p id="typewriter-text" class="font-outfit"></p>
+        </div>
+
+        <button id="btn-open-surprise" class="glow-button font-outfit">
+          <span>Open Your Surprise</span>
+          <i class="fa-solid fa-sparkles button-sparkle"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- 1. LOVE STORY TIMELINE -->
+    <section id="section-timeline" class="section hidden">
+      <div class="section-content">
+        <h2 class="section-title font-caveat">Our Journey ❤️</h2>
+        
+        <!-- Relationship Counter -->
+        <div class="counter-card glass-container">
+          <p class="counter-label font-outfit">Days We've Loved Each Other</p>
+          <div id="love-counter" class="font-outfit">
+            <div class="counter-unit">
+              <span id="count-days">000</span>
+              <label>Days</label>
+            </div>
+            <div class="counter-separator">:</div>
+            <div class="counter-unit">
+              <span id="count-hours">00</span>
+              <label>Hours</label>
+            </div>
+            <div class="counter-separator">:</div>
+            <div class="counter-unit">
+              <span id="count-minutes">00</span>
+              <label>Mins</label>
+            </div>
+            <div class="counter-separator">:</div>
+            <div class="counter-unit">
+              <span id="count-seconds">00</span>
+              <label>Secs</label>
+            </div>
+          </div>
+          <div class="anniversary-badge font-outfit">Since 29.10.2025 💕</div>
+        </div>
+
+        <!-- Vertical Timeline -->
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item timeline-left scroll-reveal">
+            <div class="timeline-marker"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div class="timeline-bubble glass-container">
+              <span class="timeline-date font-outfit">How We Met</span>
+              <h3 class="timeline-title font-playfair">The Beginning</h3>
+              <p class="timeline-desc font-outfit">A beautiful collision of two worlds. The day the universe decided to align our paths and gift me the most stunning smile I've ever seen. You changed my whole world.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item timeline-right scroll-reveal">
+            <div class="timeline-marker"><i class="fa-solid fa-camera-retro"></i></div>
+            <div class="timeline-bubble glass-container">
+              <span class="timeline-date font-outfit">Our First Memories</span>
+              <h3 class="timeline-title font-playfair">Sweet Whispers</h3>
+              <p class="timeline-desc font-outfit">Small laughs, secret inside jokes, and hours that felt like seconds whenever I looked into your eyes. Every early conversation is written deeply inside my heart.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item timeline-left scroll-reveal">
+            <div class="timeline-marker"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="timeline-bubble glass-container">
+              <span class="timeline-date font-outfit">Our Favorite Moments</span>
+              <h3 class="timeline-title font-playfair">Forever growing</h3>
+              <p class="timeline-desc font-outfit">From quiet, comfortable silences to adventures full of laughter. Every sunset, every coffee date, and every simple hand-hold with you is my absolute favorite story.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="nav-container">
+          <button class="btn-next glow-button font-outfit" onclick="changeSection('section-gallery')">
+            <span>Our Memories 📸</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MEMORY GALLERY -->
+    <section id="section-gallery" class="section hidden">
+      <div class="section-content">
+        <h2 class="section-title font-caveat">Memory Gallery 📸</h2>
+        <p class="gallery-subtitle font-outfit">Hover or tap on our sweet moments to make them sparkle! ✨</p>
+        
+        <!-- Polaroid Grid -->
+        <div class="gallery-grid">
+          
+          <!-- Polaroid 1 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: -4deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_meeting.png" alt="How we met" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">The day you smiled at me... 🌸</div>
+          </div>
+
+          <!-- Polaroid 2 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: 3deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_rain.png" alt="Rainy days" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Sharing a warm umbrella ☔</div>
+          </div>
+
+          <!-- Polaroid 3 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: -2deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_stars.png" alt="Stargazing" onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Under the starlit sky 💫</div>
+          </div>
+
+          <!-- Polaroid 4 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: 5deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_cafe.png" alt="Cafe date" onerror="this.src='https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Hot chocolate & heart latte ☕</div>
+          </div>
+
+          <!-- Polaroid 5 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: -3deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_beach.png" alt="Beach walking" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Walking hand in hand at sunset 🌅</div>
+          </div>
+
+          <!-- Polaroid 6 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: 4deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_cooking.png" alt="Cooking date" onerror="this.src='https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Sweet chaos in the kitchen 🍳</div>
+          </div>
+
+          <!-- Polaroid 7 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: -5deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_library.png" alt="Studying" onerror="this.src='https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Sharing silent laughs & books 📚</div>
+          </div>
+
+          <!-- Polaroid 8 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: 2deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_autumn.png" alt="Autumn walk" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Golden leaves and cozy scarves 🍁</div>
+          </div>
+
+          <!-- Polaroid 9 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: -3deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_winter.png" alt="Snowy fun" onerror="this.src='https://images.unsplash.com/photo-1482862549707-f63cb32c5fd9?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Catching snowflakes together ❄️</div>
+          </div>
+
+          <!-- Polaroid 10 -->
+          <div class="polaroid-card scroll-reveal" style="--rotation: 3deg">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/couple_cake.png" alt="Celebration" onerror="this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&q=80&w=400'">
+              <div class="polaroid-sparkles"></div>
+            </div>
+            <div class="polaroid-caption font-caveat">Celebrating your special day 🎂</div>
+          </div>
+
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="nav-container">
+          <button class="btn-next glow-button font-outfit" onclick="changeSection('section-quiz')">
+            <span>Take a Little Quiz! 😄</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SURPRISE QUIZ -->
+    <section id="section-quiz" class="section hidden">
+      <div class="section-content">
+        <h2 class="section-title font-caveat">Surprise Quiz 😄</h2>
+        
+        <div class="quiz-card glass-container scroll-reveal">
+          <div class="quiz-decorations">
+            <i class="fa-solid fa-circle-question quiz-icon animate-bounce"></i>
+          </div>
+          
+          <h3 class="quiz-question font-playfair">Who loves Adithi the most in the entire universe?</h3>
+          
+          <!-- Quiz Options Grid -->
+          <div class="quiz-options">
+            <button class="quiz-opt-btn font-outfit" onclick="answerQuiz(this, 1)">
+              <span class="opt-num">1</span>
+              <span class="opt-text">DilliLokesh</span>
+            </button>
+            <button class="quiz-opt-btn font-outfit" onclick="answerQuiz(this, 2)">
+              <span class="opt-num">2</span>
+              <span class="opt-text">DilliLokesh</span>
+            </button>
+            <button class="quiz-opt-btn font-outfit" onclick="answerQuiz(this, 3)">
+              <span class="opt-num">3</span>
+              <span class="opt-text">DilliLokesh</span>
+            </button>
+            <button class="quiz-opt-btn font-outfit" onclick="answerQuiz(this, 4)">
+              <span class="opt-num">4</span>
+              <span class="opt-text">Obviously DilliLokesh ❤️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Overlay Popup Modal (Hidden Initially) -->
+        <div id="quiz-popup" class="modal-overlay hidden">
+          <div class="modal-content glass-container animate-popup">
+            <div class="heart-pulse-large"><i class="fa-solid fa-heart"></i></div>
+            <h4 class="modal-title font-caveat">You chose the correct answer 😘</h4>
+            <p class="modal-desc font-outfit">No surprise here! DilliLokesh loves you more than words can ever describe, to the moon and back a million times over!</p>
+            <button class="glow-button font-outfit" onclick="closeQuizModal()">
+              <span>Receive Your Gift 🎁</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BIRTHDAY MESSAGE & CAKE -->
+    <section id="section-birthday" class="section hidden">
+      <div class="section-content">
+        <h2 class="section-title font-caveat">Make a Wish 🎂</h2>
+        <p class="cake-instruction font-outfit" id="cake-instruction-text">Tap on the flickering candle to blow it out and make your wish come true! ✨</p>
+        
+        <!-- Interactive Birthday Cake Container -->
+        <div id="cake-container" class="scroll-reveal">
+          <div class="cake-box">
+            <!-- Plate -->
+            <div class="plate"></div>
+            
+            <!-- Cake Base -->
+            <div class="cake">
+              <div class="frosting-layer"></div>
+              <div class="cake-decorations">
+                <span class="berry"></span>
+                <span class="berry"></span>
+                <span class="berry"></span>
+                <span class="berry"></span>
+                <span class="berry"></span>
+              </div>
+            </div>
+            
+            <!-- Candle -->
+            <div class="candle" id="birthday-candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame" id="candle-flame"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Birthday Message Envelope / Card (Hidden initially, appears after candle is blown out) -->
+        <div id="birthday-letter-container" class="letter-overlay hidden">
+          <div class="birthday-card glass-container animate-fade-in">
+            <div class="letter-header">
+              <span class="stamp"><i class="fa-solid fa-heart"></i></span>
+            </div>
+            
+            <div class="birthday-text font-outfit">
+              <p class="salutation">Dear Adithi,</p>
+              <p class="body-para text-gradient-sweet">You are one of the best things that happened in my life.</p>
+              <p class="body-para text-gradient-sweet">Thank you for every smile, every memory, and every moment.</p>
+              <p class="body-para text-gradient-sweet">May your birthday be as beautiful as you are.</p>
+              <p class="closing font-playfair">Happy Birthday My Love ❤️</p>
+            </div>
+            
+            <div class="letter-footer">
+              <hr class="heart-divider">
+              <p class="signature font-caveat">Forever yours, DilliLokesh ❤️</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modern JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
